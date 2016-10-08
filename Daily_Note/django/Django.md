@@ -71,7 +71,7 @@ The **sqlmigrate command** doesn’t actually run the migration on your database
 
 	
 	
-###DAY2
+##DAY2
 
 * include를 사용하는 url에는 맨뒤에 $를 사용하지않는다
 * mysite urls.py 에서 polls 를 지정했기때문에 polls.urls.py url이 ^$이여도 polls로 지정이된다
@@ -93,7 +93,7 @@ The **sqlmigrate command** doesn’t actually run the migration on your database
 	* 0부터 시작하려면 forloop 0	 	
 
 
-
+## Day 3
 ###Models
 
 primary key 지정
