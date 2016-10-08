@@ -1,0 +1,16 @@
+#page {
+  width: 800px;
+}
+
+#page a:hover {
+  color: red;
+  font-weight: bold;
+}
+
+#page .container {
+  margin-left: 10px;
+  margin-right: 5px;
+  border-top-style: solid;
+}
+
+/*# sourceMappingURL=ref-parent.css.map */

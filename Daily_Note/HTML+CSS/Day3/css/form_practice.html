@@ -1,0 +1,47 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Document</title>
+   <link rel="stylesheet" href="../sass/form-sass.css" media="screen" title="no title">
+ </head>
+ <body>
+<form action="http://sports.naver.com" method="post">
+   <h3>회원가입</h3>
+    <fieldset>
+      <legend> 기본정보 </legend>
+
+
+      <div class="form-control">
+        <label for="username">ID </label>
+          <input type="text" name="username" value="" placeholder="ID를 입력하세요">
+      </div>
+      <div class="form-control">
+        <label for="password">비밀번호</label>
+          <input type="text" name="password" value="" placeholder="비밀번호를 입력해주세요">
+      </div>
+      <div class="form-control">
+        <label for="email">이메일</label>
+          <input type="text" name="email" value="">
+      </div>
+        </fieldset>
+    <fieldset>
+      <legend>선택입력</legend>
+      <div class="form-control">
+        <label for="age">나이</label>
+          <input type="text" name="age" value="" placeholder="몇살인데 ">
+      </div>
+      <div class="form-control">
+        <label>주소</label>
+          <input type="text" name="name" value="">
+      </div>
+      <div class="form-control">
+        <label for="info">자기소개</label>
+        <textarea rows="10" cols="40" placeholder="자기소개해라 짱나게 ㄴㄴ"></textarea>
+      </div>
+    </fieldset>
+    <button type="button" name="button"class="btn-join">회원가입</button>
+  </form>
+ </body>
