@@ -113,13 +113,121 @@ primary key 지정
 
 
 
+## Day 4
+
+추상 클래스 (Abstract Class)
+
+(Query)
+**get**
+
+- 1개만 가지고온다
+- data가 두개이상이면 error
+
+**filter**
+
+- 2개이상의 data를 가지고온다
+
+**__ <-는 filter instance 뒤에 붙여서 꾸며준다**
+
+**__exact**
+
+> Entry.objects.get(headline__exact = 'Cat bites dog')
+
+
+**__iexact**
+
+* case- insensitive match
+> Blog.objects.get(name__iexact = 'beatles blog')
+>
+
+**__contains**
+
+**__gt**
+
+* greater than
+> Entry.objects.filter(id__gt = 4)
+
+__startswith = '', __endswith = '', __lt = , __lte = 
+
+
+**F expressions**
+
+from django.db.models import F
+> Entry.objects.filter(n_comments__gt = F('n_pingbacks')*2)
+* 특정 모델 필드랑 다른 필드 값 비교할때 쓴다
+* 필드를 비교
+
+Q objects
+
+from django.db.models import Q
+> and 나 or 를 사용할때 양쪽 비교값을 비교할때 Q로 묶는다
+
+
+```sh
+Blog.objects.filter(entry__headline__contains='', entry__pub_date__year=2008)
+```
+* 
+
+```sh
+Blog.objects.filter(entry__headline__contains='Lennon').filter(entry__pub_date__year=2008)
+```
+* 두개의 차이점은 -> 첫번째는 lennon과 2008을 동시에 filter하고 두번째는 lennon을 filter 하고 나중에 2008 을 filter 한다
+* 만약 lennon filter를 해서 100개중 20개가 남으면나중에 20개중에 2008 을 filter 한다
+
+* block / extends 
+
+ base.html 을 따로 베이스로 만들고 안에 컨텐츠들만 바뀐다했을때 다른 html 파일을 만들어서 컨텐츠만 따로 관리( extends base.html )
 
 
 
+* {{post.text|linebreaksbr}}	
+	* 줄바꿈을
+
+	
+	
+	 
+```sh
+HttpResponseRedirect(reverse('polls:results', args=(question.id,)))	
+```
+====
+```sh
+return redirect('view이름' = URL pattern namespace + name or the callable view object, question_id = question.id)	 
+```
+
+* ModelForm
+	*	모델에 정의한 field들을 참조하여 모델 폼을을 만들어주는 역할을한다.
+```sh
+class PhotoForm(forms.ModelForm): 	
+	class Meta:
+		model = Photo
+		fields = ['title','image','description']
 
 
+* LogIN
+	* 내가 네이버로그인을하고 네이버는 다른사이트를 불러올때 계속 로그인인 상태를 보여준다. 이 각각은 연결 되어있지않다. 제가 요청을 한번보내면 받은사람은 다시보내고 그리고 다시한번 요청을 보낼때 서버는 내가 로그인이 되어있다는 사실을 알아야한다.
+		* session 이란 서버가 해단 서버로 request(접근한) 클라이언트를 식별하는 방법	
+		* 이것을 session으로 처리를한다. 특정한 key 값을 서버와 클라이언트 쪽에서 동시에 받는다. USER가 로그인을 할때 서버쪽에서  어떤 특정한 key값을 준다. 이 유저는 이key값과 mapping된다라고 서버는 처리를한다. 그리고 이 key값을 던져주면 클라이언트는 이key값을 가지고있는다. (브라우저에는 쿠키쪽에 넣어서 그 특정한 문자를 가지고있는다) 해당사이트를 활동할때 그 쿠키값을 계속 전달을해준다 서버는 그 문자를 받으면 '아 너가 걔야' 하면서 요청을 처리해준다.
+		* auth_login에서 session id를 만들어주고 middleware에서 session id 를 처리를해주는역할을하게한다
+
+		
+* command+shift+F
+	* find and replace all
 
 
+* Messages framework
+	* 글삭제했을때, 로그인 성공할때 잠깐 팝업뜨고 사라지는것을 사용할때 
+	*  
 
+* Unique
+	* 한번field에 들어가면 중복 입력 불가능	
+
+
+* AUTH_USER_MODEL = 'member.MyUser'
+* BaseUserManager
+	* create_user& create_superuser 를 가지고있고
+	* create_user 와다르게 superuser로 생성할때는 무조건 password를 provide 해야한다 
+
+* HASH
+	* 비밀번호는 암호화를 통해 (특정화 함수를 통해 고정적인 
 
 

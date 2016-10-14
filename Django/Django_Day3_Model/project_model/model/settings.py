@@ -42,6 +42,9 @@ INSTALLED_APPS = [
     'person2',
     'food',
     'car',
+    'symmetrical',
+    'inheritance',
+    'queries',
 ]
 
 MIDDLEWARE = [
